@@ -1,52 +1,40 @@
 <template>
   <div id="app">
-    <top-bar></top-bar>
-    <top-header></top-header>
-    <top-banner></top-banner>
-    <top-sub></top-sub>
-    <goods></goods>
-    <temp-footer></temp-footer>
-    <play-video :play-config="playConfig"></play-video>
+    <headers></headers>
+    <contents></contents>
+    <footers></footers> 
   </div>
 </template>
 
 <script>
-import TopBar from './components/TopBar'
-import TopHeader from './components/TopHeader'
-import TopBanner from './components/TopBanner'
-import TopSub from './components/TopSub'
-import Goods from './components/Goods'
-import TempFooter from './components/TempFooter'
-import PlayVideo from './components/common/PlayVideo'
-
+import Headers from './components/headers'
+import Contents from './components/contents'
+import Footers from './components/footers'
 export default {
-  data () {
-    return {
-      playConfig: {}
-    }
-  },
-  ready () {
-    this.recivePlayVideo()
-  },
-  methods: {
-    recivePlayVideo () {
-      this.$on('play', function (opts) {
-        this.playConfig = opts
-      })
-    }
-  },
+  name: 'app',
   components: {
-    'top-bar': TopBar,
-    'top-header': TopHeader,
-    'top-banner': TopBanner,
-    'top-sub': TopSub,
-    'goods': Goods,
-    'temp-footer': TempFooter,
-    'play-video': PlayVideo
+    Headers,
+    Contents,
+    Footers
   }
 }
 </script>
 
 <style>
-@import './assets/css/base.css';
+*{
+  font-family: microsoft yahei;
+}
+#app {
+  width: 1020px;
+  margin: 0 auto;
+  padding: 0;
+  box-shadow: 0px 0px 10px 7px rgb(225,225,226);
+}
+
+a,a:hover,a:visited,a:link{
+  text-decoration: none;
+  outline: none;
+}
+
+
 </style>
